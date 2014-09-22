@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -51,4 +52,14 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+    
+    public void goToArchive(MenuItem menu){
+    	Toast.makeText(this, "Archivetest", Toast.LENGTH_SHORT).show();
+    }
+    
+    public void deleteToDoItem(MenuItem menu){
+    	Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
+    }
+    
+    
 }

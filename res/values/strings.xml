@@ -4,5 +4,6 @@
     <string name="app_name">ejlo-notes</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_archive">ejlo-notes Archive1</string>
 
 </resources>

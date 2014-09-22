@@ -1,13 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ca.ualberta.cs.ejlo.todolistforandroid.MainActivity" >
+    tools:context="ca.ualberta.cs.ejlo.todolistforandroid.ArchiveActivity" >
 
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
-    <item android:id="@+id/goToArchiveItem" android:title="goToArchive" android:onClick="goToArchive"></item>
-    <item android:id="@+id/deleteToDoItem" android:title="Delete" android:onClick="deleteToDoItem"></item>
 
 </menu>
