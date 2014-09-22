@@ -15,12 +15,18 @@ public class ToDoList {
 		return toDoList;
 	}
 
-	public void addItem(ToDoItem testItem) {
-		toDoList.add(testItem);
+	public void addItem(ToDoItem Item) {
+		toDoList.add(Item);
 	}
 
-	public void removeItem(ToDoItem testItem) {
-		toDoList.remove(testItem);
+	public void removeItem(ToDoItem Item) {
+		toDoList.remove(Item);
+	}
+	
+	public ToDoItem popItem(ToDoItem Item){
+		ToDoItem tempItem = Item;
+		toDoList.remove(Item);
+		return tempItem;
 	}
 
 }
