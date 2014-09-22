@@ -19,6 +19,7 @@
 package ca.ualberta.cs.ejlo.todolistforandroid;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,7 +55,9 @@ public class MainActivity extends Activity {
     }
     
     public void goToArchive(MenuItem menu){
-    	Toast.makeText(this, "Archivetest", Toast.LENGTH_SHORT).show();
+    	Toast.makeText(this, "Going to archive...", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
+    	startActivity(intent);
     }
     
     public void deleteToDoItem(MenuItem menu){

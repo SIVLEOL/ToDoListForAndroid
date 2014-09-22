@@ -10,7 +10,7 @@ public class ArchiveActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_archive);
+		setContentView(R.layout.archive);
 	}
 
 	@Override
