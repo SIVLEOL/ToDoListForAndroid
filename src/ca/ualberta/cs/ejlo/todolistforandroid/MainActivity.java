@@ -40,13 +40,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ListView toDoListView = (ListView) findViewById(R.id.ToDoListView);
-        Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
-        ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
+        final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
+        final ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
         final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, android.R.layout.simple_list_item_1, toDoList);
         toDoListView.setAdapter(toDoListAdapter);
         
         ToDoListController.getToDoList().addListener(new Listener(){
         	public void update(){
+        		toDoList.clear();
+        		toDoListAdapter.notifyDataSetChanged();
+        		toDoList.addAll(tempList);
         		toDoListAdapter.notifyDataSetChanged();
         	}
         });
