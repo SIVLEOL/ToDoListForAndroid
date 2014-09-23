@@ -18,13 +18,18 @@
 
 package ca.ualberta.cs.ejlo.todolistforandroid;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 
@@ -34,6 +39,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ListView toDoListView = (ListView) findViewById(R.id.ToDoListView);
+        Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
+        ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
+        final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, android.R.layout.simple_list_item_1, toDoList);
+        toDoListView.setAdapter(toDoListAdapter);
+        
+        ToDoListController.getToDoList().addListener(new Listener(){
+        	public void update(){
+        		toDoListAdapter.notifyDataSetChanged();
+        	}
+        });
     }
 
 
@@ -68,7 +84,7 @@ public class MainActivity extends Activity {
     
     public void addToDoItemAction(View v){
     	ToDoListController ct = new ToDoListController();
-    	EditText addTextView = (EditText) findViewById(R.id.addToDoItemText);
+    	EditText addTextView = (EditText) findViewById(R.id.AddToDoItemText);
     	ct.addToDoItem(new ToDoItem(addTextView.getText().toString()));
     	addTextView.setText("");
     	//connect to text later

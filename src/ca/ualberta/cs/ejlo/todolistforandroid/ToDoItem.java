@@ -26,4 +26,8 @@ public class ToDoItem {
 		return text;
 	}
 	
+	public String toString(){
+		return getText();
+	}
+	
 }

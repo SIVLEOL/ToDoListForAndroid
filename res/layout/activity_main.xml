@@ -9,7 +9,7 @@
     tools:context="ca.ualberta.cs.ejlo.todolistforandroid.MainActivity" >
 
     <Button
-        android:id="@+id/addToDoItemButton"
+        android:id="@+id/AddToDoItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -18,24 +18,24 @@
         android:text="Add" />
 
     <EditText
-        android:id="@+id/addToDoItemText"
+        android:id="@+id/AddToDoItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addToDoItemButton"
-        android:layout_alignBottom="@+id/addToDoItemButton"
-        android:layout_toLeftOf="@+id/addToDoItemButton"
+        android:layout_alignBaseline="@+id/AddToDoItemButton"
+        android:layout_alignBottom="@+id/AddToDoItemButton"
+        android:layout_toLeftOf="@+id/AddToDoItemButton"
         android:ems="10" >
 
         <requestFocus />
     </EditText>
 
     <ListView
-        android:id="@+id/toDoListView"
+        android:id="@+id/ToDoListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/emailButton"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/addToDoItemButton" >
+        android:layout_below="@+id/AddToDoItemButton" >
 
     </ListView>
 
