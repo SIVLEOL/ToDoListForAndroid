@@ -25,6 +25,7 @@ public class ToDoList {
 	}
 	public void removeItem(ToDoItem Item) {
 		toDoList.remove(Item);
+		notifyListeners();
 	}
 	public ToDoItem popItem(ToDoItem Item){
 		ToDoItem tempItem = Item;

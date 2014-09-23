@@ -27,6 +27,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -39,12 +41,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Set up the to do list
         ListView toDoListView = (ListView) findViewById(R.id.ToDoListView);
         final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
         final ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
         final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, android.R.layout.simple_list_item_1, toDoList);
         toDoListView.setAdapter(toDoListAdapter);
         
+        //Set up listener for changes to the to do list
         ToDoListController.getToDoList().addListener(new Listener(){
         	public void update(){
         		toDoList.clear();
@@ -53,6 +57,19 @@ public class MainActivity extends Activity {
         		toDoListAdapter.notifyDataSetChanged();
         	}
         });
+        
+        toDoListView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				Toast.makeText(MainActivity.this, "Delete "+toDoList.get(position).toString(), 
+						Toast.LENGTH_SHORT).show();
+				ToDoItem toDoItem = toDoList.get(position);
+				ToDoListController.getToDoList().removeItem(toDoItem);
+				return false;
+			}
+		});
+        
     }
 
 
