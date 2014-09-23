@@ -45,7 +45,8 @@ public class MainActivity extends Activity {
         ListView toDoListView = (ListView) findViewById(R.id.ToDoListView);
         final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
         final ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
-        final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, android.R.layout.simple_list_item_1, toDoList);
+        final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, 
+        		android.R.layout.simple_list_item_multiple_choice, toDoList);
         toDoListView.setAdapter(toDoListAdapter);
         
         //Set up listener for changes to the to do list
