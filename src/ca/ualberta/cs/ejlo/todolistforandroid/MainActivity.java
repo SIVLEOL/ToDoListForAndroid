@@ -23,6 +23,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -55,13 +57,29 @@ public class MainActivity extends Activity {
     }
     
     public void goToArchive(MenuItem menu){
-    	Toast.makeText(this, "Going to archive...", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
     	startActivity(intent);
     }
     
+    public void goToArchive(View v){
+    	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void addToDoItemAction(View v){
+    	ToDoListController ct = new ToDoListController();
+    	EditText addTextView = (EditText) findViewById(R.id.addToDoItemText);
+    	ct.addToDoItem(new ToDoItem(addTextView.getText().toString()));
+    	addTextView.setText("");
+    	//connect to text later
+    }
+    
     public void deleteToDoItem(MenuItem menu){
     	Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
+    }
+    
+    public void emailTest(View v){
+    	Toast.makeText(this, "Email Test", Toast.LENGTH_SHORT).show();
     }
     
     
