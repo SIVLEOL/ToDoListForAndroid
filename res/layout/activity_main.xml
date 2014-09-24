@@ -36,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/emailButton"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/AddToDoItemButton" >
+        android:layout_below="@+id/AddToDoItemButton"
+        android:choiceMode="multipleChoice" >
 
     </ListView>
 

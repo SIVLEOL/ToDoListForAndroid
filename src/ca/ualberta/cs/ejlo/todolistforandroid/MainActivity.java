@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -63,10 +66,27 @@ public class MainActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
-				Toast.makeText(MainActivity.this, "Delete "+toDoList.get(position).toString(), 
-						Toast.LENGTH_SHORT).show();
-				ToDoItem toDoItem = toDoList.get(position);
-				ToDoListController.getToDoList().removeItem(toDoItem);
+				AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+				adb.setCancelable(true);
+				final int finalPosition = position;
+				adb.setPositiveButton("Delete", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						Toast.makeText(MainActivity.this, "Deleted "+toDoList.get(finalPosition).toString(), 
+								Toast.LENGTH_SHORT).show();
+						ToDoItem toDoItem = toDoList.get(finalPosition);
+						ToDoListController.getToDoList().removeItem(toDoItem);
+					}
+				});
+				adb.setNegativeButton("Archive", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						Toast.makeText(MainActivity.this, "Archived "+toDoList.get(finalPosition).toString(), 
+								Toast.LENGTH_SHORT).show();
+					}	
+					
+				});
+				adb.show();
 				return false;
 			}
 		});
@@ -111,8 +131,8 @@ public class MainActivity extends Activity {
     	//connect to text later
     }
     
-    public void deleteToDoItem(MenuItem menu){
-    	Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
+    public void emailToDoItem(MenuItem menu){
+    	Toast.makeText(this, "Going to email menu", Toast.LENGTH_SHORT).show();
     }
     
     public void emailTest(View v){

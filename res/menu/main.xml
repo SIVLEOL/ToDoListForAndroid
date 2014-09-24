@@ -8,6 +8,6 @@
         android:showAsAction="never"
         android:title="@string/action_settings"/>
     <item android:id="@+id/goToArchiveItem" android:title="Archive" android:onClick="goToArchive"></item>
-    <item android:id="@+id/deleteToDoItem" android:title="Delete" android:onClick="deleteToDoItem"></item>
+    <item android:id="@+id/emailToDoItem" android:title="Email" android:onClick="emailToDoItem"></item>
 
 </menu>
