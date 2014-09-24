@@ -1,7 +1,13 @@
 package ca.ualberta.cs.ejlo.todolistforandroid;
 
-public class ToDoItem {
+import java.io.Serializable;
 
+public class ToDoItem implements Serializable{
+
+	/**
+	 * ToDoItem serialization_ID
+	 */
+	private static final long serialVersionUID = 5134096143323535366L;
 	private int checked = 0;
 	private String text;
 
@@ -28,6 +34,28 @@ public class ToDoItem {
 	
 	public String toString(){
 		return getText();
+	}
+	
+	public boolean equals(Object compareToDoItem){
+		if(compareToDoItem == null){
+			return false;
+		}
+		if(compareToDoItem.getClass()==this.getClass()){
+			return this.equals((ToDoItem)compareToDoItem);
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean equals(ToDoItem compareToDoItem){
+		if(compareToDoItem == null){
+			return false;
+		}
+		return getText().equals(compareToDoItem.getText());
+	}
+	@Override
+	public int hashCode(){
+		return ("ToDoItem:"+getText()).hashCode();
 	}
 	
 }

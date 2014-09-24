@@ -1,12 +1,17 @@
 package ca.ualberta.cs.ejlo.todolistforandroid;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import ca.ualberta.cs.ejlo.todolistforandroid.Listener;
 
-public class ToDoList {
+public class ToDoList implements Serializable {
 
+	/**
+	 * ToDoList serialization_ID
+	 */
+	private static final long serialVersionUID = -3208983109306905849L;
 	protected ArrayList<ToDoItem> toDoList;
 	private int checkedCount = 0;
 	private int totalCount = 0;
