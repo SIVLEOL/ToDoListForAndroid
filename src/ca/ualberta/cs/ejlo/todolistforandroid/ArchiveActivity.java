@@ -1,12 +1,25 @@
 package ca.ualberta.cs.ejlo.todolistforandroid;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class ArchiveActivity extends Activity {
 
@@ -16,8 +29,75 @@ public class ArchiveActivity extends Activity {
 		setContentView(R.layout.archive);
 		
 		ToDoListManager.initManager(this.getApplicationContext());
-		
-		
+		/*
+		//Set up the to do list
+        final ListView toDoListView = (ListView) findViewById(R.id.ArchiveListView);
+        final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
+        final ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
+        
+        final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, 
+        		android.R.layout.simple_list_item_multiple_choice, toDoList);
+        toDoListView.setAdapter(toDoListAdapter);
+        
+        //Set up listener for changes to the to do list
+        ToDoListController.getToDoList().addListener(new Listener(){
+        	public void update(){
+        		toDoList.clear();
+        		toDoListAdapter.notifyDataSetChanged();
+        		toDoList.addAll(tempList);
+        		toDoListAdapter.notifyDataSetChanged();
+        	}
+        });
+        
+        for (int i = 0; i < toDoList.size(); i++){
+			if (toDoList.get(i).getCheck() == 1){
+				toDoListView.setItemChecked(i, true);
+			}
+		}
+        
+        toDoListView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+				adb.setCancelable(true);
+				final int finalPosition = position;
+				adb.setPositiveButton("Delete", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						Toast.makeText(MainActivity.this, "Deleted "+toDoList.get(finalPosition).toString(), 
+								Toast.LENGTH_SHORT).show();
+						ToDoItem toDoItem = toDoList.get(finalPosition);
+						ToDoListController.getToDoList().removeItem(toDoItem);
+					}
+				});
+				adb.setNegativeButton("Archive", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						Toast.makeText(MainActivity.this, "Archived "+toDoList.get(finalPosition).toString(), 
+								Toast.LENGTH_SHORT).show();
+					}	
+					
+				});
+				adb.show();
+				return false;
+			}
+		});
+        
+        toDoListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int position,
+					long id) {
+				//Self Note: view appears to be a CheckedTextView passed in as a view, casting it worked here
+				CheckedTextView tempView = (CheckedTextView) view;
+				boolean check = tempView.isChecked();
+				if (check){
+					ToDoListController.getToDoList().checkItem(position);
+				} else {
+					ToDoListController.getToDoList().uncheckItem(position);
+				}
+			}	
+		});*/
 	}
 
 	@Override

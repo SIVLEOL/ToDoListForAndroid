@@ -14,12 +14,12 @@ public class ToDoList implements Serializable {
 	 */
 	private static final long serialVersionUID = -3208983109306905849L;
 	protected ArrayList<ToDoItem> toDoList = null;
-	private int checkedCount = 0;
-	private int totalCount = 0;
+	protected ArrayList<ToDoItem> archiveList = null;
 	protected transient ArrayList<Listener> listeners = null;
 	
 	public ToDoList(){
 		toDoList = new ArrayList<ToDoItem>();
+		archiveList = new ArrayList<ToDoItem>();
 		listeners = new ArrayList<Listener>();
 	}
 	private ArrayList<Listener> getListeners(){
@@ -28,18 +28,29 @@ public class ToDoList implements Serializable {
 		}
 		return listeners;
 	}
-	
 	public Collection<ToDoItem> getToDoItems() {
 		return toDoList;
 	}
+	public Collection<ToDoItem> getArchiveItems() {
+		return archiveList;
+	}
 	public void addItem(ToDoItem Item) {
 		toDoList.add(Item);
+		notifyListeners();
+	}
+	public void addArchiveItem(ToDoItem Item) {
+		archiveList.add(Item);
 		notifyListeners();
 	}
 	public void removeItem(ToDoItem Item) {
 		toDoList.remove(Item);
 		notifyListeners();
 	}
+	public void removeArchiveItem(ToDoItem Item) {
+		archiveList.remove(Item);
+		notifyListeners();
+	}
+	//Change this to move to archive and move back
 	public ToDoItem popItem(ToDoItem Item){
 		ToDoItem tempItem = Item;
 		toDoList.remove(Item);
@@ -53,17 +64,13 @@ public class ToDoList implements Serializable {
 		toDoList.get(position).uncheck();
 		notifyListeners();
 	}
-	public int getCheckedCount(){
-		return checkedCount;
+	public void checkArchiveItem(int position){
+		archiveList.get(position).check();
+		notifyListeners();
 	}
-	public int getTotalCount(){
-		return totalCount;
-	}
-	public void setCheckedCount(int count){
-		checkedCount = count;
-	}
-	public void setTotalCount(int count){
-		totalCount = count;
+	public void uncheckArchiveItem(int position){
+		archiveList.get(position).uncheck();
+		notifyListeners();
 	}
 	public void notifyListeners(){
 		for (Listener listener : listeners){
