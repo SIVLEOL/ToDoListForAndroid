@@ -29,10 +29,10 @@ public class ArchiveActivity extends Activity {
 		setContentView(R.layout.archive);
 		
 		ToDoListManager.initManager(this.getApplicationContext());
-		
+		/*
 		//Set up the to do list
         final ListView toDoListView = (ListView) findViewById(R.id.ArchiveListView);
-        final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getArchiveItems();
+        final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
         final ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
         
         final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, 
@@ -59,30 +59,22 @@ public class ArchiveActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
-				AlertDialog.Builder adb = new AlertDialog.Builder(ArchiveActivity.this);
+				AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
 				adb.setCancelable(true);
 				final int finalPosition = position;
 				adb.setPositiveButton("Delete", new OnClickListener(){
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
-						Toast.makeText(ArchiveActivity.this, "Deleted "+toDoList.get(finalPosition).toString(), 
+						Toast.makeText(MainActivity.this, "Deleted "+toDoList.get(finalPosition).toString(), 
 								Toast.LENGTH_SHORT).show();
 						ToDoItem toDoItem = toDoList.get(finalPosition);
-						ToDoListController.getToDoList().removeArchiveItem(toDoItem);
-						//Update the checkboxes of listview to reflect changes to data
-						for (int i = 0; i < toDoList.size(); i++){
-							if (toDoList.get(i).getCheck() == 1){
-								toDoListView.setItemChecked(i, true);
-							} else {
-								toDoListView.setItemChecked(i, false);
-							}
-						}
+						ToDoListController.getToDoList().removeItem(toDoItem);
 					}
 				});
-				adb.setNegativeButton("Move to To Do", new OnClickListener(){
+				adb.setNegativeButton("Archive", new OnClickListener(){
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
-						Toast.makeText(ArchiveActivity.this, "Moved "+toDoList.get(finalPosition).toString(), 
+						Toast.makeText(MainActivity.this, "Archived "+toDoList.get(finalPosition).toString(), 
 								Toast.LENGTH_SHORT).show();
 					}	
 					
@@ -100,12 +92,12 @@ public class ArchiveActivity extends Activity {
 				CheckedTextView tempView = (CheckedTextView) view;
 				boolean check = tempView.isChecked();
 				if (check){
-					ToDoListController.getToDoList().checkArchiveItem(position);
+					ToDoListController.getToDoList().checkItem(position);
 				} else {
-					ToDoListController.getToDoList().uncheckArchiveItem(position);
+					ToDoListController.getToDoList().uncheckItem(position);
 				}
 			}	
-		});
+		});*/
 	}
 
 	@Override
@@ -127,10 +119,10 @@ public class ArchiveActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void addArchiveItemAction(View v){
+	public void addToDoItemAction(View v){
     	ToDoListController ct = new ToDoListController();
-    	EditText addTextView = (EditText) findViewById(R.id.ArchiveAddText);
-    	ct.addArchiveItem(new ToDoItem(addTextView.getText().toString()));
+    	EditText addTextView = (EditText) findViewById(R.id.AddToDoItemText);
+    	ct.addToDoItem(new ToDoItem(addTextView.getText().toString()));
     	addTextView.setText("");
     	
     }
