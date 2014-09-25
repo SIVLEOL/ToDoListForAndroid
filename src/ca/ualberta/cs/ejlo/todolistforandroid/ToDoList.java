@@ -50,11 +50,13 @@ public class ToDoList implements Serializable {
 		archiveList.remove(Item);
 		notifyListeners();
 	}
-	//Change this to move to archive and move back
-	public ToDoItem popItem(ToDoItem Item){
-		ToDoItem tempItem = Item;
-		toDoList.remove(Item);
-		return tempItem;
+	public void archiveItem(ToDoItem toDoItem) {
+		toDoList.remove(toDoItem);
+		addArchiveItem(toDoItem);
+	}
+	public void unarchiveItem(ToDoItem toDoItem) {
+		archiveList.remove(toDoItem);
+		addItem(toDoItem);
 	}
 	public void checkItem(int position){
 		toDoList.get(position).check();
