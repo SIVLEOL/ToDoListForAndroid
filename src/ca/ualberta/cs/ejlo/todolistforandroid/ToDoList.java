@@ -1,5 +1,6 @@
 package ca.ualberta.cs.ejlo.todolistforandroid;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,15 +13,22 @@ public class ToDoList implements Serializable {
 	 * ToDoList serialization_ID
 	 */
 	private static final long serialVersionUID = -3208983109306905849L;
-	protected ArrayList<ToDoItem> toDoList;
+	protected ArrayList<ToDoItem> toDoList = null;
 	private int checkedCount = 0;
 	private int totalCount = 0;
-	protected ArrayList<Listener> listeners;
+	protected transient ArrayList<Listener> listeners = null;
 	
 	public ToDoList(){
 		toDoList = new ArrayList<ToDoItem>();
 		listeners = new ArrayList<Listener>();
 	}
+	private ArrayList<Listener> getListeners(){
+		if(listeners == null){
+			listeners = new ArrayList<Listener>();
+		}
+		return listeners;
+	}
+	
 	public Collection<ToDoItem> getToDoItems() {
 		return toDoList;
 	}
@@ -55,7 +63,7 @@ public class ToDoList implements Serializable {
 		}
 	}
 	public void addListener(Listener l) {
-		listeners.add(l);
+		getListeners().add(l);
 	}
 	public void removeListener(Listener l) {
 		listeners.remove(l);		

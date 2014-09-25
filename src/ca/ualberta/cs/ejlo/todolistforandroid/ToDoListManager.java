@@ -18,6 +18,24 @@ public class ToDoListManager {
 	
 	Context context;
 	
+	private static ToDoListManager toDoListManager = null;
+	
+	public static void initManager(Context context){
+		if (toDoListManager == null){
+			if (context == null){
+				throw new RuntimeException("Missing context for ToDoListManager");
+			}
+			toDoListManager = new ToDoListManager(context);
+		}
+	}
+	
+	public static ToDoListManager getManager(){
+		if (toDoListManager == null){
+			throw new RuntimeException("Did not initialize ToDoListManager");
+		}
+		return toDoListManager;
+	}
+	
 	public ToDoListManager(Context context) {
 		this.context = context;
 	}

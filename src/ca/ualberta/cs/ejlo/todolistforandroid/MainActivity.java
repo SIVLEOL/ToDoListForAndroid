@@ -44,6 +44,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        ToDoListManager.initManager(this.getApplicationContext());
+        
         //Set up the to do list
         ListView toDoListView = (ListView) findViewById(R.id.ToDoListView);
         final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
