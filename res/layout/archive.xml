@@ -8,18 +8,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" >
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ArchiveAddButton" >
 
     </ListView>
 
     <Button
-        android:id="@+id/archiveEmailButton"
+        android:id="@+id/ArchiveAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="18dp"
-        android:text="Email" />
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Add" />
+
+    <EditText
+        android:id="@+id/ArchiveAddText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ArchiveAddButton"
+        android:layout_alignBottom="@+id/ArchiveAddButton"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="19dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

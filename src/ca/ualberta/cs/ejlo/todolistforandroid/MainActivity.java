@@ -55,10 +55,6 @@ public class MainActivity extends Activity {
         final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
         final ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
         
-        /*for (int i = 0; i < toDoList.size(); i++){
-        	Log.println(Log.WARN, "early", "" + toDoList.get(i).getText());
-		}*/
-        
         final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, 
         		android.R.layout.simple_list_item_multiple_choice, toDoList);
         toDoListView.setAdapter(toDoListAdapter);
@@ -74,7 +70,6 @@ public class MainActivity extends Activity {
         });
         
         for (int i = 0; i < toDoList.size(); i++){
-        	Log.println(Log.WARN, "test", "" + toDoList.get(i).getCheck());
 			if (toDoList.get(i).getCheck() == 1){
 				toDoListView.setItemChecked(i, true);
 			}
@@ -158,12 +153,14 @@ public class MainActivity extends Activity {
     	
     }
     
-    public void emailToDoItem(MenuItem menu){
-    	Toast.makeText(this, "Going to email menu", Toast.LENGTH_SHORT).show();
+    public void goToEmail(MenuItem menu){
+    	Intent intent = new Intent(MainActivity.this, EmailActivity.class);
+    	startActivity(intent);
     }
     
-    public void emailTest(View v){
-    	Toast.makeText(this, "Email Test", Toast.LENGTH_SHORT).show();
+    public void goToSummary(MenuItem menu){
+    	Intent intent = new Intent(MainActivity.this, SummaryActivity.class);
+    	startActivity(intent);
     }
     
     

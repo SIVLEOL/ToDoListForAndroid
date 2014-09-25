@@ -1,13 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ca.ualberta.cs.ejlo.todolistforandroid.ArchiveActivity" >
+    tools:context="ca.ualberta.cs.ejlo.todolistforandroid.SummaryActivity" >
 
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
-    <item android:id="@+id/emailToDoItemArchive" android:title="Email" android:onClick="goToEmail"></item>
-    <item android:id="@+id/goToSummaryItemArchive" android:title="Summary" android:onClick="goToSummary"></item>
 
 </menu>

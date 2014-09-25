@@ -26,6 +26,14 @@
             android:name=".ArchiveActivity"
             android:label="@string/title_activity_archive" >
         </activity>
+        <activity
+            android:name=".EmailActivity"
+            android:label="@string/title_activity_email" >
+        </activity>
+        <activity
+            android:name=".SummaryActivity"
+            android:label="@string/title_activity_summary" >
+        </activity>
     </application>
 
 </manifest>

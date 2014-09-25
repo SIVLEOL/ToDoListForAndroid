@@ -34,20 +34,10 @@
         android:id="@+id/ToDoListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/emailButton"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/AddToDoItemButton"
         android:choiceMode="multipleChoice" >
 
     </ListView>
-
-    <Button
-        android:id="@+id/emailButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="emailTest"
-        android:text="Email" />
 
 </RelativeLayout>
