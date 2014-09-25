@@ -12,5 +12,6 @@
     <string name="go_to_archive">Go To Archive</string>
     <string name="summary">Summary</string>
     <string name="enter_text">Enter text</string>
+    <string name="error">Error</string>
 
 </resources>

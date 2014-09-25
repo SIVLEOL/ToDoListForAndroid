@@ -9,12 +9,70 @@
     tools:context="ca.ualberta.cs.ejlo.todolistforandroid.SummaryActivity" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/toDoSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Large Text"
+        android:text="@string/error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/toDoNotChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/toDoChecked"
+        android:layout_below="@+id/toDoChecked"
+        android:text="@string/error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/archiveChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/archiveSummary"
+        android:layout_below="@+id/archiveSummary"
+        android:layout_marginLeft="24dp"
+        android:text="@string/error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/toDoChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/toDoSummary"
+        android:layout_below="@+id/toDoSummary"
+        android:layout_marginLeft="20dp"
+        android:text="@string/error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/archiveSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/toDoSummary"
+        android:layout_below="@+id/toDoNotChecked"
+        android:layout_marginTop="54dp"
+        android:text="@string/error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/archiveNotChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/archiveChecked"
+        android:layout_below="@+id/archiveChecked"
+        android:text="@string/error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/totalSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/archiveSummary"
+        android:layout_below="@+id/archiveNotChecked"
+        android:layout_marginTop="78dp"
+        android:text="@string/error"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
