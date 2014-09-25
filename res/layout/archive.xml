@@ -3,28 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ListView
-        android:id="@+id/ArchiveListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ArchiveAddButton"
-        android:choiceMode="multipleChoice" >
-
-    </ListView>
-
-    <Button
-        android:id="@+id/ArchiveAddButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="16dp"
-        android:onClick="addArchiveItemAction"
-        android:text="Add" />
-
     <EditText
         android:id="@+id/ArchiveAddText"
         android:layout_width="wrap_content"
@@ -37,5 +15,26 @@
 
         <requestFocus />
     </EditText>
+
+    <ListView
+        android:id="@+id/ArchiveListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ArchiveAddButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:choiceMode="multipleChoice" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/ArchiveAddButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="18dp"
+        android:layout_toRightOf="@+id/ArchiveAddText"
+        android:onClick="addArchiveItemAction"
+        android:text="Add" />
 
 </RelativeLayout>
