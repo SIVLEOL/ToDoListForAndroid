@@ -7,8 +7,8 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
-    <item android:id="@+id/goToArchiveItem" android:title="Go to archive" android:onClick="goToArchive"></item>
-    <item android:id="@+id/emailToDoItem" android:title="Email" android:onClick="goToEmail"></item>
-    <item android:id="@+id/goToSummaryItem" android:title="Summary" android:onClick="goToSummary"></item>
+    <item android:id="@+id/goToArchiveItem" android:title="@string/go_to_archive" android:onClick="goToArchive"></item>
+    <item android:id="@+id/emailToDoItem" android:title="@string/email" android:onClick="goToEmail"></item>
+    <item android:id="@+id/goToSummaryItem" android:title="@string/summary" android:onClick="goToSummary"></item>
 
 </menu>

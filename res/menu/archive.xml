@@ -7,7 +7,7 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
-    <item android:id="@+id/emailToDoItemArchive" android:title="Email" android:onClick="goToEmail"></item>
-    <item android:id="@+id/goToSummaryItemArchive" android:title="Summary" android:onClick="goToSummary"></item>
+    <item android:id="@+id/emailToDoItemArchive" android:title="@string/email" android:onClick="goToEmail"></item>
+    <item android:id="@+id/goToSummaryItemArchive" android:title="@string/summary" android:onClick="goToSummary"></item>
 
 </menu>

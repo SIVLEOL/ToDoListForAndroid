@@ -15,9 +15,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:onClick="addToDoItemAction"
-        android:text="Add" />
+        android:text="@string/add" />
 
     <EditText
+        android:hint="@string/enter_text"
         android:id="@+id/AddToDoItemText"
         android:inputType="text"
         android:layout_width="wrap_content"
