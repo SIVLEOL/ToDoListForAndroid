@@ -8,15 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.cs.ejlo.todolistforandroid.MainActivity" >
 
-    <Button
-        android:id="@+id/AddToDoItemButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:onClick="addToDoItemAction"
-        android:text="Add" />
-
     <EditText
         android:id="@+id/AddToDoItemText"
         android:inputType="text"
@@ -30,12 +21,22 @@
         <requestFocus />
     </EditText>
 
+    <Button
+        android:id="@+id/AddToDoItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="addToDoItemAction"
+        android:text="Add" />
+
     <ListView
         android:id="@+id/ToDoListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/AddToDoItemButton"
+        android:layout_above="@+id/AddToDoItemButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:choiceMode="multipleChoice" >
 
     </ListView>
