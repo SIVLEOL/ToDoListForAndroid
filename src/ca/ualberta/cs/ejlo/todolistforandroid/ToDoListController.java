@@ -40,4 +40,8 @@ public class ToDoListController {
 	public void addToDoItem(ToDoItem toDoItem) {
 		getToDoList().addItem(toDoItem);
 	}
+	
+	public void addArchiveItem(ToDoItem toDoItem) {
+		getToDoList().addArchiveItem(toDoItem);
+	}
 }
