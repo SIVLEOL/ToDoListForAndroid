@@ -73,13 +73,12 @@ public class MainActivity extends Activity {
         	}
         });
         
-        /*for (int i = 0; i < toDoList.size(); i++){
-        	Log.println(Log.WARN, "test", "" + toDoList.get(i).getText());
+        for (int i = 0; i < toDoList.size(); i++){
+        	Log.println(Log.WARN, "test", "" + toDoList.get(i).getCheck());
 			if (toDoList.get(i).getCheck() == 1){
 				toDoListView.setItemChecked(i, true);
 			}
-			toDoListView.setItemChecked(i, true);
-		}*/
+		}
         
         toDoListView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override

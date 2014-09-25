@@ -47,9 +47,11 @@ public class ToDoList implements Serializable {
 	}
 	public void checkItem(int position){
 		toDoList.get(position).check();
+		notifyListeners();
 	}
 	public void uncheckItem(int position){
 		toDoList.get(position).uncheck();
+		notifyListeners();
 	}
 	public int getCheckedCount(){
 		return checkedCount;
