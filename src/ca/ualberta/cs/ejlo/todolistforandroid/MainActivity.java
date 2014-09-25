@@ -69,6 +69,7 @@ public class MainActivity extends Activity {
         	}
         });
         
+        //Check checkboxes that should be checked
         for (int i = 0; i < toDoList.size(); i++){
 			if (toDoList.get(i).getCheck() == 1){
 				toDoListView.setItemChecked(i, true);
@@ -89,6 +90,14 @@ public class MainActivity extends Activity {
 								Toast.LENGTH_SHORT).show();
 						ToDoItem toDoItem = toDoList.get(finalPosition);
 						ToDoListController.getToDoList().removeItem(toDoItem);
+						//Update the checkboxes of listview to reflect changes to data
+						for (int i = 0; i < toDoList.size(); i++){
+							if (toDoList.get(i).getCheck() == 1){
+								toDoListView.setItemChecked(i, true);
+							} else {
+								toDoListView.setItemChecked(i, false);
+							}
+						}
 					}
 				});
 				adb.setNegativeButton("Archive", new OnClickListener(){
@@ -150,7 +159,6 @@ public class MainActivity extends Activity {
     	EditText addTextView = (EditText) findViewById(R.id.AddToDoItemText);
     	ct.addToDoItem(new ToDoItem(addTextView.getText().toString()));
     	addTextView.setText("");
-    	
     }
     
     public void goToEmail(MenuItem menu){
