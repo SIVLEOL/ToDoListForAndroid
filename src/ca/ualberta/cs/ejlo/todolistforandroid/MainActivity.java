@@ -27,12 +27,15 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -48,9 +51,14 @@ public class MainActivity extends Activity {
         ToDoListManager.initManager(this.getApplicationContext());
         
         //Set up the to do list
-        ListView toDoListView = (ListView) findViewById(R.id.ToDoListView);
+        final ListView toDoListView = (ListView) findViewById(R.id.ToDoListView);
         final Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
         final ArrayList<ToDoItem> toDoList = new ArrayList<ToDoItem>(tempList);
+        
+        /*for (int i = 0; i < toDoList.size(); i++){
+        	Log.println(Log.WARN, "early", "" + toDoList.get(i).getText());
+		}*/
+        
         final ArrayAdapter<ToDoItem> toDoListAdapter = new ArrayAdapter<ToDoItem>(this, 
         		android.R.layout.simple_list_item_multiple_choice, toDoList);
         toDoListView.setAdapter(toDoListAdapter);
@@ -64,6 +72,14 @@ public class MainActivity extends Activity {
         		toDoListAdapter.notifyDataSetChanged();
         	}
         });
+        
+        /*for (int i = 0; i < toDoList.size(); i++){
+        	Log.println(Log.WARN, "test", "" + toDoList.get(i).getText());
+			if (toDoList.get(i).getCheck() == 1){
+				toDoListView.setItemChecked(i, true);
+			}
+			toDoListView.setItemChecked(i, true);
+		}*/
         
         toDoListView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
@@ -94,8 +110,22 @@ public class MainActivity extends Activity {
 			}
 		});
         
+        toDoListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int position,
+					long id) {
+				//Self Note: view appears to be a CheckedTextView passed in as a view, casting it worked here
+				CheckedTextView tempView = (CheckedTextView) view;
+				boolean check = tempView.isChecked();
+				if (check){
+					ToDoListController.getToDoList().checkItem(position);
+				} else {
+					ToDoListController.getToDoList().uncheckItem(position);
+				}
+			}	
+		});
+        
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -121,17 +151,12 @@ public class MainActivity extends Activity {
     	startActivity(intent);
     }
     
-    public void goToArchive(View v){
-    	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
-    	startActivity(intent);
-    }
-    
     public void addToDoItemAction(View v){
     	ToDoListController ct = new ToDoListController();
     	EditText addTextView = (EditText) findViewById(R.id.AddToDoItemText);
     	ct.addToDoItem(new ToDoItem(addTextView.getText().toString()));
     	addTextView.setText("");
-    	//connect to text later
+    	
     }
     
     public void emailToDoItem(MenuItem menu){

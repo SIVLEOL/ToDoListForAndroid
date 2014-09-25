@@ -16,12 +16,11 @@ public class ToDoItem implements Serializable{
 	}
 	
 	public void check(){
-	//check or uncheck the to do item
-		if (checked == 0){
-			checked = 1;
-		} else {
-			checked = 0;	
-		}
+		checked = 1;
+	}
+	
+	public void uncheck(){
+		checked = 0;
 	}
 	
 	public int getCheck(){
