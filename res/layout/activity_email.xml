@@ -8,4 +8,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.cs.ejlo.todolistforandroid.EmailActivity" >
 
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/toTextView"
+        android:ems="10"
+        android:hint="@string/email_field"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/toTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/emailEditText"
+        android:layout_alignBottom="@+id/emailEditText"
+        android:layout_alignParentLeft="true"
+        android:text="@string/to"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/emailToDoListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/emailEditText"
+        android:onClick="emailAllToDo"
+        android:text="@string/email_all_to_do" />
+
+    <Button
+        android:id="@+id/EmailListSelectionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/emailSelectionArchiveButton"
+        android:layout_alignLeft="@+id/emailToDoListButton"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="26dp"
+        android:onClick="emailSomeToDo"
+        android:text="@string/email_some_to_do" />
+
+    <Button
+        android:id="@+id/emailSelectionArchiveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/EmailListSelectionButton"
+        android:layout_alignRight="@+id/EmailListSelectionButton"
+        android:layout_centerVertical="true"
+        android:onClick="emailSomeArchive"
+        android:text="@string/email_some_archive" />
+
+    <Button
+        android:id="@+id/emailAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailSelectionArchiveButton"
+        android:layout_alignRight="@+id/emailSelectionArchiveButton"
+        android:layout_below="@+id/emailSelectionArchiveButton"
+        android:layout_marginTop="25dp"
+        android:onClick="emailAll"
+        android:text="@string/email_all" />
+
 </RelativeLayout>

@@ -13,5 +13,14 @@
     <string name="summary">Summary</string>
     <string name="enter_text">Enter text</string>
     <string name="error">Error</string>
+    <string name="email_field">user@example.ca</string>
+    <string name="to">To: </string>
+    <string name="email_all_to_do">Email To Do List</string>
+    <string name="email_some_to_do">Email Selection of \nTo Do List Items</string>
+    <string name="email_some_archive">Email Selection of \nArchived Items</string>
+    <string name="email_all">Email All \n (Including Archived Items)</string>
+    <string name="title_activity_email_to_do">Email To Do List Selection</string>
+    <string name="title_activity_email_archive">Email Archive Selection</string>
+    <string name="email_selection">Email Selection</string>
 
 </resources>
