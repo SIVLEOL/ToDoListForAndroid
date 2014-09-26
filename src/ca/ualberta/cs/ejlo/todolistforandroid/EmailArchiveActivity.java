@@ -1,3 +1,21 @@
+/*
+	ejlo-notes: A simple to do list for android
+    Copyright (C) 2014  ejlo@ualberta.ca
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    */
+
 package ca.ualberta.cs.ejlo.todolistforandroid;
 
 import java.util.ArrayList;
@@ -13,6 +31,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class EmailArchiveActivity extends Activity {
+	
+	/*Allows user to select archive items to email, on send button
+	 * press this activity finishes so user returns to the email menu.
+	 */
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +71,9 @@ public class EmailArchiveActivity extends Activity {
 	}
 	
 	public void emailSelection(View v){
+		
+		//Upon pressing the email selection button, format selected content and email
+		
 		ListView toDoListView = (ListView) findViewById(R.id.emailArchiveListView);
 		EmailSender emailSender = new EmailSender();
 		Collection<ToDoItem> tempList = ToDoListController.getToDoList().getArchiveItems();

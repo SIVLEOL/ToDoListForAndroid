@@ -42,6 +42,11 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
+	/*The main launcher activity, displays the main to do list and allows the user to
+	 * add to do items, check/uncheck items, move items to archive list and reach
+	 * the archive, email menu and summary through the menu.
+	 */
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +70,7 @@ public class MainActivity extends Activity {
         		toDoListAdapter.notifyDataSetChanged();
         		toDoList.addAll(tempList);
         		toDoListAdapter.notifyDataSetChanged();
-        		//Update the checkboxes of listview to reflect changes to data
+        		//Update the checkboxes of the listView to reflect changes to data
         		for (int i = 0; i < toDoList.size(); i++){
 					if (toDoList.get(i).getCheck() == 1){
 						toDoListView.setItemChecked(i, true);
@@ -119,6 +124,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position,
 					long id) {
+				//Update toDoItem checked attribute to be consistent with view checkboxes.
 				//Self Note: view appears to be a CheckedTextView passed in as a view, casting it worked here
 				CheckedTextView tempView = (CheckedTextView) view;
 				boolean check = tempView.isChecked();
