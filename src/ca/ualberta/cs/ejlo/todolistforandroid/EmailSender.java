@@ -32,7 +32,8 @@ public class EmailSender {
 	}
 	
 	public void sendEmail(Context context, String subject, String body, String recipient){
-		//Format taken from: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application
+		//Format taken from: fiXedd's comment at 
+		//http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
 		intent.putExtra(Intent.EXTRA_EMAIL, recipient);

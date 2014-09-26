@@ -26,6 +26,8 @@
         android:layout_alignBaseline="@+id/AddToDoItemButton"
         android:layout_alignBottom="@+id/AddToDoItemButton"
         android:layout_toLeftOf="@+id/AddToDoItemButton"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="19dp"
         android:ems="10" >
 
         <requestFocus />
@@ -36,6 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:layout_below="@+id/AddToDoItemButton"
         android:choiceMode="multipleChoice" >
 
