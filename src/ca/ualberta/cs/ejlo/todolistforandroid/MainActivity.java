@@ -45,6 +45,9 @@ public class MainActivity extends Activity {
 	/*The main launcher activity, displays the main to do list and allows the user to
 	 * add to do items, check/uncheck items, move items to archive list and reach
 	 * the archive, email menu and summary through the menu.
+	 * 
+	 * Organization of code heavily influenced by Abram Hindle's student picker program
+	 * as seen in https://www.youtube.com/playlist?list=PL240uJOh_Vb4PtMZ0f7N8ACYkCLv0673O
 	 */
 	
     @Override
@@ -89,6 +92,7 @@ public class MainActivity extends Activity {
 		}
         
         toDoListView.setOnItemLongClickListener(new OnItemLongClickListener() {
+        	//Long clicking brings up the delete and archive options
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
@@ -121,6 +125,7 @@ public class MainActivity extends Activity {
 		});
         
         toDoListView.setOnItemClickListener(new OnItemClickListener() {
+        	//Check to do item on click
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position,
 					long id) {

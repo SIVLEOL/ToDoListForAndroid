@@ -32,7 +32,10 @@ public class ToDoListManager {
 	
 	/*Deals with file i/o of ToDoList through serialization 
 	 * 
-	 * Code format heavily inspired by Abram Hindle's student picker program.
+	 * Code format of this class heavily inspired by Abram Hindle's student 
+	 * picker program as seen in https://www.youtube.com/watch?v=gmNfc6u1qk0 
+	 * and https://www.youtube.com/watch?v=uat-8Z6U_Co
+	 * 
 	 * */
 	
 	

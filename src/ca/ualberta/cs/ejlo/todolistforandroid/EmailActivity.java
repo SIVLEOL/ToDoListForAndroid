@@ -33,7 +33,7 @@ public class EmailActivity extends Activity {
 	
 	/*Allows user to access email options and input the recipient
 	 * into a text field. Return to main activity or archive activity
-	 * is done through hardware back button.
+	 * can be done through hardware back button.
 	 */
 	
 	public final static String EXTRA_MESSAGE = "ca.ualberta.cs.ejlo.todolistforandroid.MESSAGE";
@@ -67,6 +67,7 @@ public class EmailActivity extends Activity {
 	
 	
 	public void emailAllToDo(View v){
+		//Email entire to do list but not archive
 		TextView emailTextView = (TextView) findViewById(R.id.emailEditText);
 		EmailSender emailSender = new EmailSender();
 		Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();
@@ -85,6 +86,7 @@ public class EmailActivity extends Activity {
 	}
 	
 	public void emailSomeToDo(View v){
+		//Go to emailToDoActivity to select To Do Items to email
 		Intent intent = new Intent(EmailActivity.this, EmailToDoActivity.class);
 		TextView emailTextView = (TextView) findViewById(R.id.emailEditText);
 		String recipient = emailTextView.getText().toString();
@@ -93,6 +95,7 @@ public class EmailActivity extends Activity {
 	}
 	
 	public void emailSomeArchive(View v){
+		//Go to emailArchiveActivity to select archive items to email
 		Intent intent = new Intent(EmailActivity.this, EmailArchiveActivity.class);
 		TextView emailTextView = (TextView) findViewById(R.id.emailEditText);
 		String recipient = emailTextView.getText().toString();
@@ -101,6 +104,7 @@ public class EmailActivity extends Activity {
 	}
 	
 	public void emailAll(View v){
+		//Email entire to do list and archive 
 		TextView emailTextView = (TextView) findViewById(R.id.emailEditText);
 		EmailSender emailSender = new EmailSender();
 		Collection<ToDoItem> tempList = ToDoListController.getToDoList().getToDoItems();

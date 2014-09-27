@@ -29,7 +29,10 @@ import android.widget.TextView;
 
 public class SummaryActivity extends Activity {
 	
-	//Summarizes content of to do list and archive list
+	/*Summarizes content of to do list and archive list.
+	 *Return to main activity or archive activity
+	 *can be done through hardware back button.
+	 */
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

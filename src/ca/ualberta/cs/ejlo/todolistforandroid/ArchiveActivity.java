@@ -42,11 +42,8 @@ import android.widget.AdapterView.OnItemLongClickListener;
 public class ArchiveActivity extends Activity {
 
 	/*The archive activity, same functionality as the main activity but
-	 * for the archive list. Returning to main activity should be done via
+	 * for the archive list. Returning to main activity can be done via
 	 * the hardware back button.
-	 * 
-	 * Note: archive to do list is referred to as toDoList, like for the main
-	 * activity, maybe should consider renaming.
 	 */
 	
 	@Override
@@ -72,6 +69,14 @@ public class ArchiveActivity extends Activity {
         		toDoListAdapter.notifyDataSetChanged();
         		toDoList.addAll(tempList);
         		toDoListAdapter.notifyDataSetChanged();
+        		//Update the checkboxes of listview to reflect changes to data
+				for (int i = 0; i < toDoList.size(); i++){
+					if (toDoList.get(i).getCheck() == 1){
+						toDoListView.setItemChecked(i, true);
+					} else {
+						toDoListView.setItemChecked(i, false);
+					}
+				}
         	}
         });
         
@@ -82,6 +87,7 @@ public class ArchiveActivity extends Activity {
 		}
         
         toDoListView.setOnItemLongClickListener(new OnItemLongClickListener() {
+        	//Long clicking brings up the delete and unarchive options
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
@@ -95,14 +101,6 @@ public class ArchiveActivity extends Activity {
 								Toast.LENGTH_SHORT).show();
 						ToDoItem toDoItem = toDoList.get(finalPosition);
 						ToDoListController.getToDoList().removeArchiveItem(toDoItem);
-						//Update the checkboxes of listview to reflect changes to data
-						for (int i = 0; i < toDoList.size(); i++){
-							if (toDoList.get(i).getCheck() == 1){
-								toDoListView.setItemChecked(i, true);
-							} else {
-								toDoListView.setItemChecked(i, false);
-							}
-						}
 					}
 				});
 				adb.setNegativeButton("Move to To Do", new OnClickListener(){
@@ -112,14 +110,6 @@ public class ArchiveActivity extends Activity {
 								Toast.LENGTH_SHORT).show();
 						ToDoItem toDoItem = toDoList.get(finalPosition);
 						ToDoListController.getToDoList().unarchiveItem(toDoItem);
-						//Update the checkboxes of listview to reflect changes to data
-						for (int i = 0; i < toDoList.size(); i++){
-							if (toDoList.get(i).getCheck() == 1){
-								toDoListView.setItemChecked(i, true);
-							} else {
-								toDoListView.setItemChecked(i, false);
-							}
-						}
 					}	
 					
 				});
@@ -129,6 +119,7 @@ public class ArchiveActivity extends Activity {
 		});
         
         toDoListView.setOnItemClickListener(new OnItemClickListener() {
+        	//Check to do item on click
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position,
 					long id) {

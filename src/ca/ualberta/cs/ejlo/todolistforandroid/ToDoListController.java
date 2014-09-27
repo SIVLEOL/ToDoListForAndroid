@@ -22,9 +22,12 @@ import java.io.IOException;
 
 public class ToDoListController {
 	
-	/*Allows activities to access shared to do lists
+	/*Allows activities to access a shared and persistent ToDoList
 	 *
-	 * Code format heavily inspired by Abram Hindle's student picker program.
+	 * Code format of this class heavily inspired by Abram Hindle's student 
+	 * picker program as seen in https://www.youtube.com/watch?v=gmNfc6u1qk0 
+	 * and https://www.youtube.com/watch?v=uat-8Z6U_Co
+	 * 
 	 */
 	
 	private static ToDoList toDoList = null;
